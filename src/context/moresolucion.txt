@@ -1,0 +1,37 @@
+function addToCart(itemSelected: Product) {
+    // // Verify if exist the same product into the cart.
+    // const isItemsCart = cartItems.find((item) => item.id === itemSelected.id);
+
+    // setCartItems((prev) => {
+    //   if (isItemsCart) {
+    //     // if exist and you want add one more , get all the item and increment one more into the amount;
+    //     // if not return the item.
+    //     const updatedCart = prev.map((item: Product) =>
+    //       item.id === itemSelected.id
+    //         ? { ...item, amount: item.amount + 1 }
+    //         : item
+    //     );
+    //     return updatedCart;
+    //   }
+    //   // if the first time you just get all the items and the item selected increment its amount one more.
+    //   return [...prev, { ...itemSelected, amount: 1 }];
+    // });
+  }
+
+  function removeToCart(id: number) {
+    const removeItem = cartItems.reduce((accumulator, item) => {
+      // verify if the item is the same item selected.
+      if (item.id === id) {
+        // if the item amount equals one return the accumulator
+        if (item.amount === 1) return accumulator;
+
+        // if the item select there are some amounts decrement
+        return [...accumulator, { ...item, amount: item.amount - 1 }];
+      } else {
+        // return the accumulator and item.
+        return [...accumulator, item];
+      }
+    }, [] as Product[]);
+
+    setCartItems(removeItem);
+  }

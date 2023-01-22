@@ -1,0 +1,22 @@
+.contentStyle {
+  padding: 116px 0px 20px 52px;
+
+
+}
+
+@media screen and (max-width: 400px) {
+  .contentStyle {
+    padding-left: 32px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .contentStyle {
+    padding-top: 150px;
+  }
+}
+
+
+
+
+
